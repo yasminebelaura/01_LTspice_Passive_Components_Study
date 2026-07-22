@@ -1,350 +1,221 @@
-\# Simulation 1 : Vérification de la loi d'Ohm avec LTspice
+# Simulation 1 : Vérification de la loi d'Ohm avec LTspice
 
+## Objectif
 
+Cette première simulation a pour objectif de vérifier expérimentalement la loi d'Ohm à l'aide du logiciel **LTspice**.
 
-\## Objectif
+La loi d'Ohm établit la relation entre la tension appliquée aux bornes d'une résistance, le courant qui la traverse et sa valeur résistive :
 
+$$
+I = \frac{U}{R}
+$$
 
+Avec :
 
-Cette première simulation a pour objectif de vérifier expérimentalement la loi d'Ohm à l'aide du logiciel LTspice.
+- **U** : tension aux bornes de la résistance (Volt)
+- **I** : courant traversant la résistance (Ampère)
+- **R** : valeur de la résistance (Ohm)
 
+Cette étude permet également de comprendre l'influence de la valeur de la résistance sur le courant circulant dans un circuit.
 
+---
 
-La loi d'Ohm établit la relation entre la tension appliquée aux bornes d'un dipôle résistif, le courant qui le traverse et sa résistance :
+# 1. Description du circuit
 
+Deux circuits résistifs indépendants ont été simulés afin de comparer l'influence de la résistance sur le courant.
 
+Les conditions de simulation sont :
 
-\\\[
+- Source continue : **5 V**
+- Analyse LTspice : **Operating Point (.op)**
 
-I = \\frac{U}{R}
+---
 
-\\]
-
-
-
-avec :
-
-
-
-\- \*\*U\*\* : tension aux bornes de la résistance (V)
-
-\- \*\*I\*\* : courant traversant la résistance (A)
-
-\- \*\*R\*\* : valeur de la résistance (Ω)
-
-
-
-Cette étude permet également d'observer l'influence de la valeur de la résistance sur le courant consommé par un circuit.
-
-
-
-\---
-
-
-
-\# 1. Description du circuit
-
-
-
-Deux circuits résistifs indépendants ont été simulés.
-
-
-
-\## Circuit 1 : Résistance de 1 kΩ
-
-
+## Circuit 1 : Résistance de 1 kΩ
 
 Paramètres :
 
+- Tension appliquée :
 
+```
+U = 5 V
+```
 
-\- Source continue : \*\*U = 5 V\*\*
+- Résistance :
 
-\- Résistance : \*\*R1 = 1 kΩ\*\*
+```
+R1 = 1 kΩ
+```
 
+Schéma LTspice :
 
+*(Ajouter ici la capture du schéma)*
 
-Schéma :
+---
 
-
-
-\*(Insérer ici la capture du schéma LTspice)\*
-
-
-
-\---
-
-
-
-\## Circuit 2 : Résistance de 10 kΩ
-
-
+## Circuit 2 : Résistance de 10 kΩ
 
 Paramètres :
 
+- Tension appliquée :
 
+```
+U = 5 V
+```
 
-\- Source continue : \*\*U = 5 V\*\*
+- Résistance :
 
-\- Résistance : \*\*R2 = 10 kΩ\*\*
+```
+R2 = 10 kΩ
+```
 
+Schéma LTspice :
 
+*(Ajouter ici la capture du schéma)*
 
-Schéma :
+---
 
+# 2. Calculs théoriques
 
+## Cas 1 : Résistance R1 = 1 kΩ
 
-\*(Insérer ici la capture du schéma LTspice)\*
+Application de la loi d'Ohm :
 
+$$
+I = \frac{U}{R}
+$$
 
+Calcul :
 
-\---
+```
+I = 5 / 1000
+```
 
+Résultat :
 
-
-\# 2. Calculs théoriques
-
-
-
-\## Cas 1 : R = 1 kΩ
-
-
-
-D'après la loi d'Ohm :
-
-
-
-\\\[
-
-I = \\frac{U}{R}
-
-\\]
-
-
-
-Application numérique :
-
-
-
-\\\[
-
-I = \\frac{5}{1000}
-
-\\]
-
-
-
-\\\[
-
-I = 0,005A
-
-\\]
-
-
+```
+I = 0,005 A
+```
 
 Soit :
 
+```
+I = 5 mA
+```
 
+---
 
-\\\[
+## Cas 2 : Résistance R2 = 10 kΩ
 
-\\boxed{I = 5mA}
+Calcul :
 
-\\]
+```
+I = 5 / 10000
+```
 
+Résultat :
 
-
-\---
-
-
-
-\## Cas 2 : R = 10 kΩ
-
-
-
-\\\[
-
-I = \\frac{5}{10000}
-
-\\]
-
-
-
-\\\[
-
-I = 0,0005A
-
-\\]
-
-
+```
+I = 0,0005 A
+```
 
 Soit :
 
+```
+I = 0,5 mA
+```
 
+---
 
-\\\[
+# 3. Résultats de simulation LTspice
 
-\\boxed{I = 0,5mA}
+Les résultats obtenus avec LTspice sont :
 
-\\]
+## Circuit 1 : R1 = 1 kΩ
 
+Résultat Operating Point :
 
+```
+V(n001) = 5 V
 
-\---
-
-
-
-\# 3. Résultats de simulation LTspice
-
-
-
-Les résultats obtenus avec l'analyse \*\*Operating Point (.op)\*\* sont :
-
-
-
-\### Circuit 1 : R = 1 kΩ
-
-
+I(R1) = 0.005 A
+```
 
 Soit :
 
+```
+I(R1) = 5 mA
+```
 
+---
 
-\\\[
+## Circuit 2 : R2 = 10 kΩ
 
-I(R1)=5mA
+Résultat Operating Point :
 
-\\]
+```
+V(n002) = 5 V
 
-
-
-\---
-
-
-
-\### Circuit 2 : R = 10 kΩ
-
-
+I(R2) = 0.0005 A
+```
 
 Soit :
 
+```
+I(R2) = 0,5 mA
+```
 
+---
 
-\\\[
+# 4. Comparaison théorie / simulation
 
-I(R2)=0,5mA
+| Circuit | Tension | Résistance | Courant théorique | Courant LTspice |
+|---|---|---|---|---|
+| Circuit 1 | 5 V | 1 kΩ | 5 mA | 5 mA |
+| Circuit 2 | 5 V | 10 kΩ | 0,5 mA | 0,5 mA |
 
-\\]
+---
 
+# 5. Analyse des résultats
 
+Les résultats obtenus avec LTspice correspondent aux calculs théoriques.
 
-\---
+Pour une tension constante de 5 V :
 
+- Une faible résistance permet le passage d'un courant plus important.
+- Une résistance élevée limite davantage le courant.
 
+On observe donc :
 
-\# 4. Comparaison théorie / simulation
+$$
+R \uparrow \Rightarrow I \downarrow
+$$
 
+Dans cette étude :
 
-
-| Circuit | Tension appliquée | Résistance | Courant théorique | Courant LTspice |
-
-|---|---:|---:|---:|---:|
-
-| 1 | 5 V | 1 kΩ | 5 mA | 5 mA |
-
-| 2 | 5 V | 10 kΩ | 0,5 mA | 0,5 mA |
-
-
-
-\---
-
-
-
-\# 5. Analyse des résultats
-
-
-
-Les résultats obtenus avec LTspice sont conformes aux calculs théoriques.
-
-
-
-Pour une tension constante de \*\*5 V\*\*, on observe que :
-
-
-
-\- Lorsque la résistance diminue, le courant augmente.
-
-\- Lorsque la résistance augmente, le courant diminue.
-
-
-
-Dans ce cas :
-
-
-
-\\\[
-
-R\_2 = 10 \\times R\_1
-
-\\]
-
-
-
-donc :
-
-
-
-\\\[
-
-I\_2 = \\frac{I\_1}{10}
-
-\\]
-
-
-
-Le courant traversant la résistance de \*\*10 kΩ\*\* est donc dix fois plus faible que celui traversant la résistance de \*\*1 kΩ\*\*.
-
-
+- La résistance de 10 kΩ est 10 fois plus grande que celle de 1 kΩ.
+- Le courant obtenu est donc 10 fois plus faible.
 
 Cette simulation met en évidence le rôle fondamental de la résistance dans la limitation du courant électrique.
 
+---
 
-
-\---
-
-
-
-\# 6. Conclusion
-
-
+# 6. Conclusion
 
 Cette première simulation valide expérimentalement la loi d'Ohm :
 
+$$
+I = \frac{U}{R}
+$$
 
-
-\\\[
-
-I=\\frac{U}{R}
-
-\\]
-
-
-
-Les résultats LTspice correspondent aux valeurs calculées théoriquement.
-
-
+Les résultats obtenus avec LTspice sont conformes aux valeurs calculées théoriquement.
 
 Cette étude constitue une première étape dans l'analyse des composants passifs et permet de comprendre le comportement d'une résistance dans un circuit électronique.
 
-
-
 Les prochaines simulations porteront sur :
 
-\- l'association de résistances (série et parallèle),
-
-\- le pont diviseur de tension,
-
-\- la puissance dissipée par une résistance,
-
-\- puis l'étude des autres composants passifs : condensateur et inductance.
-
+- Association de résistances en série et en parallèle
+- Pont diviseur de tension
+- Puissance dissipée par une résistance
+- Étude du condensateur
+- Étude de l'inductance
